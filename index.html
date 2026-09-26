@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Audio2110 — ST 2110-30 and AES67 audio for Mac</title>
+<meta name="description" content="Audio2110 is a network audio driver for macOS that connects Mac audio applications to SMPTE ST 2110-30 and AES67 networks.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1d1d1f;
+    --muted: #6e6e73;
+    --rule: #e5e5ea;
+    --panel: #f5f5f7;
+    --accent: #0a6cff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111113;
+      --fg: #f5f5f7;
+      --muted: #a1a1a6;
+      --rule: #2c2c2e;
+      --panel: #1c1c1e;
+      --accent: #4c9bff;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 72px 24px 48px; }
+  header { padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
+  h1 { font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .tagline { font-size: 22px; color: var(--muted); margin: 0 0 28px; }
+  .lede { font-size: 19px; margin: 0 0 16px; }
+  .note {
+    background: var(--panel);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 24px 0 0;
+    font-size: 16px;
+  }
+  section { padding: 36px 0; border-bottom: 1px solid var(--rule); }
+  h2 { font-size: 24px; letter-spacing: -0.01em; margin: 0 0 18px; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  li { padding: 8px 0 8px 22px; position: relative; }
+  li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 18px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  strong { font-weight: 600; }
+  p { margin: 0 0 12px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer { padding-top: 28px; color: var(--muted); font-size: 15px; }
+  footer p { margin: 0 0 6px; }
+  @media (max-width: 520px) {
+    main { padding-top: 48px; }
+    h1 { font-size: 38px; }
+    .tagline { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <h1>Audio2110</h1>
+    <p class="tagline">ST 2110-30 and AES67 audio for Mac</p>
+    <p class="lede">Audio2110 is a network audio driver for macOS. It connects Mac audio applications directly to a broadcast facility’s SMPTE ST&nbsp;2110-30 and AES67 networks. Any app that uses CoreAudio, such as a DAW, a playout system or a monitoring tool, sees Audio2110 as an ordinary audio interface.</p>
+    <p class="note">Audio2110 is developed by Austin Storms for in-house use at a broadcast facility. It is not sold or distributed to the public.</p>
+  </header>
+
+  <section>
+    <h2>What it does</h2>
+    <ul>
+      <li><strong>Virtual audio devices.</strong> Multi-channel CoreAudio devices at 48 or 96&nbsp;kHz, created and configured at runtime.</li>
+      <li><strong>Senders and receivers.</strong> Streams audio to and from the network, with SDP, SAP and RAVENNA (mDNS/RTSP) discovery.</li>
+      <li><strong>Locked to the facility clock.</strong> The device clock follows PTPv2, the network’s media clock, so audio is never resampled.</li>
+      <li><strong>Redundant networks.</strong> Receives on both networks at once and merges them (SMPTE ST&nbsp;2022-7), so losing one network causes no audible glitch.</li>
+      <li><strong>Sample-aligned streams.</strong> Streams that carry the same media time reach applications on the same audio frame, across streams and across devices.</li>
+      <li><strong>Central management.</strong> Senders, receivers and routing are managed from the facility’s broadcast control system.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Built on Apple’s modern driver platform</h2>
+    <p>The audio devices come from a DriverKit audio driver that runs in user space, isolated from the rest of the system. Installation needs one approval in System Settings. System security settings stay as they are, and a driver problem can’t take down the Mac’s other audio.</p>
+  </section>
+
+  <section>
+    <h2>Requirements</h2>
+    <ul>
+      <li>A Mac with Apple silicon</li>
+      <li>macOS 26 or later</li>
+      <li>A network connection to an ST&nbsp;2110 / AES67 facility network with a PTPv2 grandmaster</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Contact: <strong>Austin Storms</strong> · <a href="mailto:stormsunity@gmail.com">stormsunity@gmail.com</a></p>
+    <p>© 2026 Austin Storms</p>
+  </footer>
+
+</main>
+</body>
+</html>
